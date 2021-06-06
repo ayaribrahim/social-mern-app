@@ -6,13 +6,15 @@ const mongoose = require('mongoose');
 const app = express();
 
 const postsRouter = require('./routes/posts.js');
+const authRouter = require('./routes/auth.js');
 
 
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/posts', postsRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/auth', authRouter);
 
 
 const db_string = process.env.MONGO_CONNECT_STRING;
